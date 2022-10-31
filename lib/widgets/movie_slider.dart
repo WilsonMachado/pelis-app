@@ -5,13 +5,12 @@ class MovieSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      height: 250,
-      color: Colors.red,
+      height: 260,
       child: Column(children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Text('Populares', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
         ),
 
@@ -23,7 +22,7 @@ class MovieSlider extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal, // Para que el scroll sea horizontal
             itemCount: 20,
-            itemBuilder: (_, int index) => const _MoviePoster()            
+            itemBuilder: (_, int index) => _MoviePoster()            
           ),
         ),
 
@@ -35,15 +34,36 @@ class MovieSlider extends StatelessWidget {
 ///! Widgets privados que solo viven en el widget principal
 
 class _MoviePoster extends StatelessWidget { 
-  const _MoviePoster({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
             width: 130,
             height: 190,
-            color: Colors.green,
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, 'details', arguments: 'ovie-instance'),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: const FadeInImage(
+                      placeholder: AssetImage('assets/no-image.jpg'),
+                      image: NetworkImage('https://picsum.photos/300/400?image=2'),
+                      width: 130,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const Text(
+                  'Starwars: El retorno del Jedi de W para conquistar el mundo',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
     );
   }
 }
