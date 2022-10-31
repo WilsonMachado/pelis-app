@@ -24,13 +24,16 @@ class CardSwiper extends StatelessWidget {
         ///* Función que se dispara construir el widget. Si no se usa el BuildContext, se pone un guión al piso: ( _, int index) por ejemplo. Lo importante de esta función es devolver un widget para renderizar la tarjeta.
 
         itemBuilder: ( _, int index) { 
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: const FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'), // Imagen de loading
-              image: NetworkImage('https://picsum.photos/500/300?image=1'), // Imagen que viene de internet
-              fit: BoxFit.cover,// Adapta el tamaño de la imagen al contenedor padre,
-              ),
+          return GestureDetector( // Widget que permite hacer clic en las imagenes
+            onTap: () => Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: const FadeInImage(
+                placeholder: AssetImage('assets/no-image.jpg'), // Imagen de loading
+                image: NetworkImage('https://picsum.photos/500/300?image=1'), // Imagen que viene de internet
+                fit: BoxFit.cover,// Adapta el tamaño de la imagen al contenedor padre,
+                ),
+            ),
           );
         }, 
         ),
