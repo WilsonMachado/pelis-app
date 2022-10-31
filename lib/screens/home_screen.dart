@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../widgets/widgets.dart';
+
 
 class HomeScreen extends StatelessWidget {
   
@@ -11,11 +13,19 @@ class HomeScreen extends StatelessWidget {
         title: const Center(
           child: Text('Películas en cines'),
         ),
-        elevation: 0,
+        elevation: 0,        actions: [
+          IconButton(
+            onPressed: () {}, 
+            icon: const Icon( Icons.search_outlined ) ),
+        ],
       ),
-      body: const Center(
-        child: Text('Home Screen'),
-      ),
-    );
+      body: Column(
+        children: const [
+          CardSwiper(),
+          // Listado horizontal de películas
+        ],
+       ),
+      );
+    
   }
 }
