@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/screens.dart';
+import 'screens/screens.dart'; ///! Archivo de barril para las screens
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'home',
-      routes: {
-        'home'    : ( _ ) => const HomeScreen(),
-        'details' : ( _ ) => const DetailsScreen(),
+      initialRoute: 'home', ///! Ruta inicial de la aplicación
+      routes: {             ///! Mapa que contiene las rutas de la aplicación
+
+        ///? En estos casos se usa el ( _ ) porque no se para el {context}
+        
+        'home'    : ( _ ) => const HomeScreen(),  
+        'details' : ( _ ) => const DetailsScreen(), 
       },
       
     );
