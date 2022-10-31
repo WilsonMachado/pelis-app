@@ -13,8 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Películas',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData.light().copyWith(
+        appBarTheme: const AppBarTheme(
+          color: Colors.red
+        )
       ),
       initialRoute: 'home', ///! Ruta inicial de la aplicación
       routes: {             ///! Mapa que contiene las rutas de la aplicación

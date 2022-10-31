@@ -9,8 +9,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('App de películas'),
+          child: Text('Películas en cines'),
         ),
+        elevation: 0,
       ),
       body: const Center(
         child: Text('Home Screen'),
