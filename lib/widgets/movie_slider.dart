@@ -14,7 +14,7 @@ class MovieSlider extends StatelessWidget {
           child: Text('Populares', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
         ),
 
-        ///? En este punto, la columna define sus dimensiones basados en sus hijos y el ListViewBuilder define sus dimensiones basado en sus padres. Por lo tanto, aquí hay una inconsistencia. El ListViewBuider no sabe qué tamaño debe tener, porue su padre es fexible.
+        ///? En este punto, la columna define sus dimensiones basados en sus hijos y el ListViewBuilder define sus dimensiones basado en sus padres. Por lo tanto, aquí hay una inconsistencia. El ListViewBuider no sabe qué tamaño debe tener, porque su padre es fexible.
         
         ///! Para resolver el problema anterior, se envuelve el ListView.builder en un Expanded
 
