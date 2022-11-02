@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pelis_app/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   
@@ -19,6 +20,11 @@ class DetailsScreen extends StatelessWidget {
           SliverList( // Lista para contener widgets normales (no de tipo Slivers)
             delegate: SliverChildListDelegate([
               const _PosterAndTitle(),
+              const _Overiew(),
+              const _Overiew(),
+
+              const CastingCards(),
+              
             ]
             )
           )
@@ -51,6 +57,7 @@ class _CustomAppBar extends StatelessWidget {
           width: double.infinity, // Ancho completo
           alignment: Alignment.bottomCenter, // Texto centrado abajo
           color: Colors.black54, // Filtro para la imagen
+          padding: const EdgeInsets.only(bottom: 10),
           child: const Text( // Título de la película
             'movie.title',
             style: TextStyle(fontSize: 16), // Tamaño de letra
@@ -119,6 +126,21 @@ class _PosterAndTitle extends StatelessWidget {
             ],),
         ],
       ),
+    );
+  }
+}
+
+class _Overiew extends StatelessWidget {
+  const _Overiew({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      child: Text('Culpa cupidatat in fugiat in ipsum cupidatat non in sit commodo anim sint. Aute dolor voluptate dolor tempor dolor qui fugiat laboris do incididunt. Commodo aute Lorem ullamco duis aliqua incididunt ex anim tempor esse do. Ipsum veniam ipsum Lorem veniam. Cillum ipsum non cillum sint dolor amet amet aute amet consequat. Labore culpa cupidatat aute fugiat cillum. Laboris voluptate labore dolore sint proident irure magna consectetur et.',
+      textAlign: TextAlign.justify,
+      style: textTheme.subtitle1,),
     );
   }
 }
