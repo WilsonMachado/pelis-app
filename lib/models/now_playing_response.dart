@@ -2,6 +2,8 @@
 //
 //     final nowPlayingResponse = nowPlayingResponseFromMap(jsonString);
 
+/// ! Recurso generado usando la herramienta: https://app.quicktype.io/
+
 import 'dart:convert';
 import 'package:pelis_app/models/models.dart';
 
