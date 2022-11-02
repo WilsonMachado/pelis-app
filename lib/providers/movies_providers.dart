@@ -1,7 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:pelis_app/models/models.dart';
+
 
 class MoviesProvider extends ChangeNotifier {
   // Se debe extender la clase de ChangeNotifier para que MovieProvider sea un provider válido
@@ -16,22 +18,21 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   getOnNowPlayMovies() async {
-    
     // Crea la URL de la petición
-    
+
     final url = Uri.https(_baseUrl, '3/movie/now_playing',
         {'api_key': _apiKey, 'language': _language, 'page': '1'});
 
     // Realiza una petición get
-    
+
     final response = await http.get(url);
-    
+
     // Convierte el resultado en un JSON
-    
-    final Map<String, dynamic> decodeData = json.decode(response.body);
-    
+    final NowPlayingResponse nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
+    // Antes se realizaba de esta manera: final Map<String, dynamic> decodeData = json.decode(response.body);
+
     // Imprime el resultado para corroborar
-    
-    print(decodeData);
+
+    print(nowPlayingResponse.results[0].overview);
   }
 }
