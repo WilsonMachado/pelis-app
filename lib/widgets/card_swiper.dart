@@ -21,7 +21,7 @@ class CardSwiper extends StatelessWidget {
         itemCount: movies.length, // Cantidad de tarjetas que vamos a poner
         layout: SwiperLayout.STACK,
         itemWidth: size.width * 0.6,
-        itemHeight: size.height * 0.4,
+        itemHeight: size.height * 0.47,
 
         ///* Función que se dispara construir el widget. Si no se usa el BuildContext, se pone un guión al piso: ( _, int index) por ejemplo. Lo importante de esta función es devolver un widget para renderizar la tarjeta.
 
